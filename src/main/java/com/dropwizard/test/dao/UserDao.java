@@ -10,17 +10,17 @@ import java.util.List;
 public interface UserDao {
 
     @SqlQuery("select id, name from user where id = :id")
-    User get(@Bind("id") int id);
+    User get(@Bind("id") long id);
 
     @SqlQuery("select * from user")
     List<User> getAll();
 
     @SqlUpdate("insert into user (id, name) values (:id, :name)")
-    void insert(@Bind("id") int id, @Bind("name") String name);
+    void insert(@Bind("id") long id, @Bind("name") String name);
 
     @SqlUpdate("update user set (id, name) values (:id, :name)")
-    void update(@Bind("id") int id, @Bind("name") String name);
+    void update(@Bind("id") long id, @Bind("name") String name);
 
     @SqlUpdate("update user set (deleted) values (:deleted) where id = :id")
-    void delete(@Bind("id") int id, @Bind("deleted") boolean deleted);
+    void delete(@Bind("id") long id, @Bind("deleted") boolean deleted);
 }

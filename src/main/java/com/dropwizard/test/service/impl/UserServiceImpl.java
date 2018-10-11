@@ -33,6 +33,8 @@ public abstract class UserServiceImpl implements UserService {
 
     @Override
     public void create(final UserCreationRequest userCreationRequest) {
+        final User user = mapperFactory.getMapperFacade().map(userCreationRequest, User.class);
+        userDao().insert(user.getId(), user.getName());
     }
 
     @Override

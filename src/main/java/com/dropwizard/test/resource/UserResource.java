@@ -4,7 +4,7 @@ package com.dropwizard.test.resource;
 import com.dropwizard.test.core.request.UserCreationRequestDto;
 import com.dropwizard.test.core.request.UserUpdateRequestDto;
 import com.dropwizard.test.core.responce.ApiResponse;
-import com.dropwizard.test.core.responce.AdiSuccessResponse;
+import com.dropwizard.test.core.responce.ApiSuccessResponse;
 import com.dropwizard.test.core.responce.dto.UserDto;
 
 import javax.ws.rs.*;
@@ -25,15 +25,15 @@ public interface UserResource {
 
     @POST
     @Path("")
-    ApiResponse<AdiSuccessResponse> create(UserCreationRequestDto userCreationRequestDto);
+    ApiResponse<ApiSuccessResponse> create(UserCreationRequestDto userCreationRequestDto);
 
     @PUT
     @Path("")
-    ApiResponse<AdiSuccessResponse> update(UserUpdateRequestDto userUpdateRequestDto);
+    ApiResponse<ApiSuccessResponse> update(UserUpdateRequestDto userUpdateRequestDto);
 
     @DELETE
     @Path("{userId}")
-    ApiResponse<AdiSuccessResponse> delete(@PathParam("userId") String userId);
+    ApiResponse<ApiSuccessResponse> delete(@PathParam("userId") String userId);
 
 
 

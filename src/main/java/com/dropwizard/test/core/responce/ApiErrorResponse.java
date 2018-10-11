@@ -7,5 +7,5 @@ import lombok.Data;
 public class ApiErrorResponse {
     private ApiError error;
     private int responseStatusCode;
-    private String message;
+    private final String message;
 }
