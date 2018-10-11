@@ -14,11 +14,6 @@ public class DataSourceConfiguration extends Configuration {
     private DataSourceFactory database = new DataSourceFactory();
 
     @JsonProperty("database")
-    public void setDataSourceFactory(DataSourceFactory factory) {
-        this.database = factory;
-    }
-
-    @JsonProperty("database")
     public DataSourceFactory getDataSourceFactory() {
         return database;
     }

@@ -8,8 +8,8 @@ import lombok.*;
 public class User extends AbstractEntity{
     private String name;
 
-    public User(String id, String name) {
-        super(id);
+    public User(final Long id, final Boolean deleted, final String name) {
+        super(id, deleted);
         this.name = name;
     }
 }

@@ -15,14 +15,14 @@ import java.util.List;
 public abstract class UserServiceImpl implements UserService {
 
     @CreateSqlObject
-    abstract UserDao partsDao();
+    abstract UserDao userDao();
 
     private final MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 
     private final UserMapper userMapper = new UserMapper();
 
     @Override
-    public User get(String id) {
+    public User get(final Long id) {
         return null;
     }
 
@@ -32,14 +32,14 @@ public abstract class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void create(UserCreationRequest userCreationRequest) {
+    public void create(final UserCreationRequest userCreationRequest) {
     }
 
     @Override
-    public void update(UserUpdateRequest userUpdateRequest) {
+    public void update(final UserUpdateRequest userUpdateRequest) {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(final Long id) {
     }
 }

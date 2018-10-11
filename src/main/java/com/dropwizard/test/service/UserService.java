@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
 
-    User get(String id);
+    User get(Long id);
 
     List<User> getAll();
 
@@ -16,5 +16,5 @@ public interface UserService {
 
     void update(UserUpdateRequest userUpdateRequest);
 
-    void delete(String id);
+    void delete(Long id);
 }

@@ -8,5 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class AbstractEntity {
-    private String id;
+    private Long id;
+    private Boolean deleted;
 }

@@ -10,15 +10,15 @@ package com.dropwizard.test.dao.mapper;
 public class UserMapper {
 
     private static final String ID = "id";
+    private static final String DELETED = "deleted";
     private static final String NAME = "name";
 
-    public User map(int i, ResultSet resultSet, StatementContext statementContext) throws SQLException {
-        RowMapper rowMapper = statementContext.findMapperFor(User.class).orElse(null);
-
+    public User map(final ResultSet resultSet, final StatementContext statementContext) throws SQLException {
+        final RowMapper rowMapper = statementContext.findMapperFor(User.class).orElse(null);
         if (rowMapper == null) {
             // throw something here
         }
         rowMapper.map(resultSet, statementContext);
-        return new User(resultSet.getString(ID), resultSet.getString(NAME));
+        return new User(resultSet.getLong(ID), resultSet.getBoolean(DELETED), resultSet.getString(NAME));
     }
 }

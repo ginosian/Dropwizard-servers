@@ -1,22 +1,9 @@
 package com.dropwizard.test.core.responce;
 
+import lombok.Data;
+
+@Data
 public class ApiResponse<T>  {
-    ApiErrorResponse errorResponce;
-    T apiResponse;
-
-    public ApiErrorResponse getErrorResponce() {
-        return errorResponce;
-    }
-
-    public void setErrorResponce(ApiErrorResponse errorResponce) {
-        this.errorResponce = errorResponce;
-    }
-
-    public T getApiResponse() {
-        return apiResponse;
-    }
-
-    public void setApiResponse(T apiResponse) {
-        this.apiResponse = apiResponse;
-    }
+    private ApiErrorResponse errorResponse;
+    private T apiResponse;
 }
