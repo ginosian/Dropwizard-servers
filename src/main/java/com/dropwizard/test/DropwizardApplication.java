@@ -18,6 +18,11 @@ public class DropwizardApplication  extends Application<DataSourceConfiguration>
     }
 
     @Override
+    public String getName() {
+        return "hello-world";
+    }
+
+    @Override
     public void run(final DataSourceConfiguration config, final Environment environment) {
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, config.getDataSourceFactory(), "postgresql");

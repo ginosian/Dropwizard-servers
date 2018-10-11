@@ -1,3 +1,5 @@
+template: Hello, %s!
+defaultName: Stranger
 database:
   driverClass: org.postgresql.Driver
   user: postgres
