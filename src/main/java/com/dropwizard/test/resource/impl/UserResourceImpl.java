@@ -12,15 +12,14 @@ import com.dropwizard.test.service.model.UserCreationRequest;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 
+import javax.inject.Inject;
+
 public class UserResourceImpl implements UserResource {
 
     private final MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 
-    private final UserService userService;
-
-    public UserResourceImpl(UserService userService) {
-        this.userService = userService;
-    }
+    @Inject
+    private UserService userService;
 
     @Override
     public ApiResponse<UserDto> get(final String userId) {

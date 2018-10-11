@@ -10,8 +10,10 @@ import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import org.jdbi.v3.sqlobject.CreateSqlObject;
 
+import javax.inject.Singleton;
 import java.util.List;
 
+@Singleton
 public abstract class UserServiceImpl implements UserService {
 
     @CreateSqlObject

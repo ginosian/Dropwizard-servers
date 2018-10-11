@@ -1,13 +1,11 @@
 template: Hello, %s!
-defaultName: Stranger
+defaultName: Marta
 database:
   driverClass: org.postgresql.Driver
   user: postgres
   password: postgres
-  url: jdbc:postgresql://localhost/dropwizard_test?currentSchema=public
+  url: jdbc:postgresql://localhost/dropwizard-test?currentSchema=public
   maxWaitForConnection: 1s
-  validationQuery: "/* MyService Health Check */ SELECT 1"
-  validationQueryTimeout: 3s
   minSize: 8
   maxSize: 32
   checkConnectionWhileIdle: false

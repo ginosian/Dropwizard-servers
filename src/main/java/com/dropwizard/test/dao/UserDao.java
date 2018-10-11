@@ -1,19 +1,45 @@
 package com.dropwizard.test.dao;
 
 import com.dropwizard.test.core.entity.User;
+import org.jdbi.v3.sqlobject.SqlObject;
+import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
-import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface UserDao {
+public interface UserDao extends SqlObject {
 
-    @SqlQuery("select id, name from user where id = :id")
-    User get(@Bind("id") long id);
+    @RegisterBeanMapper(User.class)
+    default User get(long id){
+        return getHandle()
+                .createQuery("select id, name from user where id = :id")
+                .bind("id", id)
+                .mapToBean(User.class).findOnly();
+    }
 
-    @SqlQuery("select * from user")
-    List<User> getAll();
+    @RegisterBeanMapper(User.class)
+    default Optional<User> find(long id){
+        return getHandle()
+                .createQuery("select id, name from user where id = :id")
+                .bind("id", id)
+                .mapToBean(User.class).findFirst();
+    }
+
+    @RegisterBeanMapper(User.class)
+    default List<User> list()  {
+        return getHandle().createQuery("SELECT * FROM users")
+                .mapToBean(User.class)
+                .list();
+    }
+
+    @RegisterBeanMapper(User.class)
+    default List<User> getAll(){
+        return getHandle().createQuery("SELECT * FROM user")
+                .mapToBean(User.class)
+                .list();
+    }
 
     @SqlUpdate("insert into user (id, name) values (:id, :name)")
     void insert(@Bind("id") long id, @Bind("name") String name);
