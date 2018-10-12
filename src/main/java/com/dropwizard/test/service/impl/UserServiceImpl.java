@@ -1,23 +1,18 @@
 package com.dropwizard.test.service.impl;
 
 import com.dropwizard.test.core.entity.User;
-import com.dropwizard.test.dao.UserDao;
 import com.dropwizard.test.dao.mapper.UserMapper;
 import com.dropwizard.test.service.UserService;
 import com.dropwizard.test.service.model.UserCreationRequest;
 import com.dropwizard.test.service.model.UserUpdateRequest;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
-import org.jdbi.v3.sqlobject.CreateSqlObject;
 
 import javax.inject.Singleton;
 import java.util.List;
 
 @Singleton
 public abstract class UserServiceImpl implements UserService {
-
-    @CreateSqlObject
-    abstract UserDao userDao();
 
     private final MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
 

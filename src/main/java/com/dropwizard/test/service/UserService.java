@@ -1,12 +1,17 @@
 package com.dropwizard.test.service;
 
 import com.dropwizard.test.core.entity.User;
+import com.dropwizard.test.dao.UserDao;
 import com.dropwizard.test.service.model.UserCreationRequest;
 import com.dropwizard.test.service.model.UserUpdateRequest;
+import org.jdbi.v3.sqlobject.CreateSqlObject;
 
 import java.util.List;
 
 public interface UserService {
+
+    @CreateSqlObject
+    UserDao userDao();
 
     User get(Long id);
 

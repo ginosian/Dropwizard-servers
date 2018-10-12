@@ -2,6 +2,7 @@ package com.dropwizard.test;
 
 import com.dropwizard.test.config.DataSourceConfiguration;
 import com.dropwizard.test.resource.impl.UserResourceImpl;
+import com.dropwizard.test.service.UserService;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.jdbi3.JdbiFactory;
@@ -27,7 +28,7 @@ public class DropwizardApplication  extends Application<DataSourceConfiguration>
         final Jdbi jdbi = factory.build(environment, config.getDatabase(), "postgresql");
 
         // Register resources
-        environment.jersey().register(new UserResourceImpl());
+        environment.jersey().register(new UserResourceImpl(jdbi.onDemand(UserService.class)));
 //        environment.jersey().register(new AbstractBinder() {
 //            @Override
 //            protected void configure() {
