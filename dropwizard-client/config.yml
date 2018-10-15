@@ -1,0 +1,9 @@
+logging:
+  level: INFO
+  loggers:
+    org.liyanxu: DEBUG
+
+swagger:
+  resourcePackage: org.dropwizard.test.resource
+template: Hello, %s!
+defaultName: Marta

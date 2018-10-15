@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <prerequisites>
-        <maven>3.0.0</maven>
-    </prerequisites>
-    <modules>
-        <module>dropwizard-com.dropwizard.client</module>
-    </modules>
 
-    <groupId>dropwizard-test-2</groupId>
-    <artifactId>dropwizard-test-2</artifactId>
+    <groupId>dropwizard-client</groupId>
+    <artifactId>dropwizard-client</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
 
-    <name>DropwizardTest</name>
+    <name>DropwizardClient</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <dropwizard.version>1.2.2</dropwizard.version>
         <dropwizard.swagger.version>1.2.2-1</dropwizard.swagger.version>
-        <dropwizard.jndi3.version>1.3.0</dropwizard.jndi3.version>
         <dropwizard.hk2.version>1.1.18-a1907f</dropwizard.hk2.version>
-        <postgresql.version>9.0-801.jdbc4</postgresql.version>
-        <mainClass>org.dropwizard.test.com.dropwizard.DropwizardClientApplication</mainClass>
+        <mainClass>org.dropwizard.test.DropwizardTestApplication</mainClass>
     </properties>
 
     <dependencyManagement>
@@ -55,27 +45,9 @@
             <version>${dropwizard.swagger.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-jdbi3</artifactId>
-            <version>${dropwizard.jndi3.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-migrations</artifactId>
-            <version>${dropwizard.version}</version>
-        </dependency>
-        <dependency>
             <groupId>zone.dragon.dropwizard</groupId>
             <artifactId>dropwizard-hk2</artifactId>
             <version>${dropwizard.hk2.version}</version>
-        </dependency>
-        <!-- endregion -->
-
-        <!-- region DATASOURCE -->
-        <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.0-801.jdbc4</version>
         </dependency>
         <!-- endregion -->
 
@@ -177,5 +149,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
