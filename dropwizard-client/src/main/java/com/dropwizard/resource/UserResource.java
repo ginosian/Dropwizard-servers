@@ -12,7 +12,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 
-
 @SwaggerDefinition(
         consumes = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML},
         produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML},

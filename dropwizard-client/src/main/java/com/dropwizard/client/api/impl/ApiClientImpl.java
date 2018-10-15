@@ -36,7 +36,6 @@ public class ApiClientImpl implements ApiClient {
 
         ClientConfig cc = new ClientConfig();
         cc.property(CommonProperties.FEATURE_AUTO_DISCOVERY_DISABLE, true);
-
         cc.register(GZipEncoder.class);
         cc.register(EncodingFilter.class);
         cc.register(new JacksonJsonProvider(mapper));
@@ -55,6 +54,5 @@ public class ApiClientImpl implements ApiClient {
 
     @Override
     public void close() throws IOException {
-
     }
 }

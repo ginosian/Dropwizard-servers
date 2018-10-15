@@ -25,19 +25,23 @@ public class UserResource extends AbstractApiResource {
     }
 
     public Response<UserDTO> get(final Long id) {
-        return doGet("/" +id, new GenericType<Response<UserDTO>>() {});
+        return doGet("/" + id, new GenericType<Response<UserDTO>>() {
+        });
     }
 
     public Response<UserDTO> create(final UserCreationRequestDto userCreationRequestDto) {
 
-        return doPost(StringUtils.EMPTY, userCreationRequestDto, new GenericType<Response<UserDTO>>() {});
+        return doPost(StringUtils.EMPTY, userCreationRequestDto, new GenericType<Response<UserDTO>>() {
+        });
     }
 
     public Response<UserDTO> update(final UserUpdateRequestDto userUpdateRequestDto) {
-        return doPut(StringUtils.EMPTY, userUpdateRequestDto, new GenericType<Response<UserDTO>>() {});
+        return doPut(StringUtils.EMPTY, userUpdateRequestDto, new GenericType<Response<UserDTO>>() {
+        });
     }
 
     public Response<ApiSuccessResponse> delete(final Long id) {
-        return doDelete("/" +id, new GenericType<Response<ApiSuccessResponse>>() {});
+        return doDelete("/" + id, new GenericType<Response<ApiSuccessResponse>>() {
+        });
     }
 }

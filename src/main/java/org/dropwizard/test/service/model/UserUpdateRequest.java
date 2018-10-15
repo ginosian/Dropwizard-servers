@@ -7,7 +7,6 @@ import javax.validation.constraints.Min;
 
 @Data
 public class UserUpdateRequest {
-
     @NotEmpty
     private String name;
 

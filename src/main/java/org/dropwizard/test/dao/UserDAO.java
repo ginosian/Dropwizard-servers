@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface UserDAO extends SqlObject {
 
     @RegisterBeanMapper(User.class)
-    default User get(long id){
+    default User get(long id) {
         return getHandle()
                 .createQuery("select id, name from user where id = :id")
                 .bind("id", id)
@@ -20,7 +20,7 @@ public interface UserDAO extends SqlObject {
     }
 
     @RegisterBeanMapper(User.class)
-    default Optional<User> find(long id){
+    default Optional<User> find(long id) {
         return getHandle()
                 .createQuery("select id, name from user where id = :id")
                 .bind("id", id)
@@ -28,21 +28,21 @@ public interface UserDAO extends SqlObject {
     }
 
     @RegisterBeanMapper(User.class)
-    default List<User> list()  {
+    default List<User> list() {
         return getHandle().createQuery("SELECT * FROM users")
                 .mapToBean(User.class)
                 .list();
     }
 
     @RegisterBeanMapper(User.class)
-    default List<User> getAll(){
+    default List<User> getAll() {
         return getHandle().createQuery("SELECT * FROM user")
                 .mapToBean(User.class)
                 .list();
     }
 
     @RegisterBeanMapper(User.class)
-    default User insert(long id, String name){
+    default User insert(long id, String name) {
         return getHandle()
                 .createQuery("insert into user (id, name) values (:id, :name)")
                 .bind("id", id)
@@ -51,7 +51,7 @@ public interface UserDAO extends SqlObject {
     }
 
     @RegisterBeanMapper(User.class)
-    default User update(long id, String name){
+    default User update(long id, String name) {
         return getHandle()
                 .createQuery("update user set (id, name) values (:id, :name)")
                 .bind("id", id)

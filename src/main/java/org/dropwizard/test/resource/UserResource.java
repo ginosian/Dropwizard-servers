@@ -95,8 +95,4 @@ public interface UserResource {
     ApiResponse<ApiSuccessResponse> delete(@PathParam("userId") Long userId);
 
 
-
-
-
-
 }

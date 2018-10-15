@@ -98,8 +98,8 @@ public class AbstractApiResource {
     }
     // endregion
 
-   // region POST
-    public  <T> T doPost(String path, Object data, Class<T> entityType) {
+    // region POST
+    public <T> T doPost(String path, Object data, Class<T> entityType) {
         Response response = null;
         try {
             response = doPost(path, data);
@@ -109,7 +109,7 @@ public class AbstractApiResource {
         }
     }
 
-    public  <T> T doPost(final String path, final Object data, final GenericType<T> entityType) {
+    public <T> T doPost(final String path, final Object data, final GenericType<T> entityType) {
         Response response = null;
         try {
             response = doPost(path, data);
@@ -128,7 +128,7 @@ public class AbstractApiResource {
     // endregion
 
     // region PUT
-    public  <T> T doPut(String path, Object data, Class<T> entityType) {
+    public <T> T doPut(String path, Object data, Class<T> entityType) {
         Response response = null;
 
         try {
@@ -139,7 +139,7 @@ public class AbstractApiResource {
         }
     }
 
-    public  <T> T doPut(final String path, final Object data, final GenericType<T> entityType) {
+    public <T> T doPut(final String path, final Object data, final GenericType<T> entityType) {
         Response response = null;
 
         try {
@@ -163,7 +163,7 @@ public class AbstractApiResource {
     // endregion
 
     // region DELETE
-    public  <T> T doDelete(String path, Class<T> entityType) {
+    public <T> T doDelete(String path, Class<T> entityType) {
         Response response = null;
         try {
             response = doDelete(path);
@@ -173,7 +173,7 @@ public class AbstractApiResource {
         }
     }
 
-    public  <T> T doDelete(final String path, final GenericType<T> entityType) {
+    public <T> T doDelete(final String path, final GenericType<T> entityType) {
         Response response = null;
         try {
             response = doDelete(path);

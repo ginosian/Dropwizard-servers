@@ -7,7 +7,6 @@ import javax.validation.constraints.Min;
 
 @Data
 public class UserUpdateRequestDto {
-
     @Min(1)
     private long id;
 

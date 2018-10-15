@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 @Setter
 @ToString(callSuper = true)
 public class DropwizardTestConfiguration extends Configuration {
-
     @NotNull
     @Valid
     @JsonProperty("swagger")
