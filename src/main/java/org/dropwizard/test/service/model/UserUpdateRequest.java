@@ -1,9 +1,16 @@
 package org.dropwizard.test.service.model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Min;
 
 @Data
 public class UserUpdateRequest {
-    private long id;
+
+    @NotEmpty
     private String name;
+
+    @Min(1)
+    private long id;
 }

@@ -25,26 +25,30 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User get(final Long id) {
-        return null;
+        return userDao.get(id);
     }
 
     @Override
     public List<User> getAll() {
-        return null;
+        return userDao.getAll();
     }
 
     @Override
-    public void create(final UserCreationRequest userCreationRequest) {
+    public User create(final UserCreationRequest userCreationRequest) {
         final User user = beanMapper.map(userCreationRequest, User.class);
-        userDao.insert(user.getId(), user.getName());
+        return userDao.insert(user.getId(), user.getName());
     }
 
     @Override
-    public void update(final UserUpdateRequest userUpdateRequest) {
+    public User update(final UserUpdateRequest userUpdateRequest) {
+        final User user = beanMapper.map(userUpdateRequest, User.class);
+        return userDao.update(user.getId(), user.getName());
     }
 
     @Override
-    public void delete(final Long id) {
+    public String delete(final Long id) {
+        userDao.delete(id, true);
+        return String.format("Deletion was successful for User:'%s'.", id);
     }
 
     @Override

@@ -9,6 +9,7 @@ import org.dropwizard.test.core.responce.ApiSuccessResponse;
 import org.dropwizard.test.core.responce.GenericListResponse;
 import org.dropwizard.test.core.responce.dto.UserDTO;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -43,7 +44,7 @@ public interface UserResource {
     })
     @GET
     @Path("{userId}")
-    ApiResponse<UserDTO> get(@PathParam("userId") String userId);
+    ApiResponse<UserDTO> get(@PathParam("userId") Long userId);
 
     @ApiOperation(
             notes = "Gets all Users with complete info.",
@@ -67,7 +68,7 @@ public interface UserResource {
     })
     @POST
     @Path("")
-    ApiResponse<ApiSuccessResponse> create(UserCreationRequestDto userCreationRequestDto);
+    ApiResponse<UserDTO> create(@Valid UserCreationRequestDto userCreationRequestDto);
 
     @ApiOperation(
             notes = "Updates User, if successful returns success message.",
@@ -79,7 +80,7 @@ public interface UserResource {
     })
     @PUT
     @Path("")
-    ApiResponse<ApiSuccessResponse> update(UserUpdateRequestDto userUpdateRequestDto);
+    ApiResponse<UserDTO> update(@Valid UserUpdateRequestDto userUpdateRequestDto);
 
     @ApiOperation(
             notes = "Deletes User, if successful return success message.",
@@ -91,7 +92,7 @@ public interface UserResource {
     })
     @DELETE
     @Path("{userId}")
-    ApiResponse<ApiSuccessResponse> delete(@PathParam("userId") String userId);
+    ApiResponse<ApiSuccessResponse> delete(@PathParam("userId") Long userId);
 
 
 

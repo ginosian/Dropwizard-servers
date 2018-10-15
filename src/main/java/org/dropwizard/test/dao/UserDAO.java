@@ -41,11 +41,23 @@ public interface UserDAO extends SqlObject {
                 .list();
     }
 
-    @SqlUpdate("insert into user (id, name) values (:id, :name)")
-    void insert(@Bind("id") long id, @Bind("name") String name);
+    @RegisterBeanMapper(User.class)
+    default User insert(long id, String name){
+        return getHandle()
+                .createQuery("insert into user (id, name) values (:id, :name)")
+                .bind("id", id)
+                .bind("name", name)
+                .mapToBean(User.class).findOnly();
+    }
 
-    @SqlUpdate("update user set (id, name) values (:id, :name)")
-    void update(@Bind("id") long id, @Bind("name") String name);
+    @RegisterBeanMapper(User.class)
+    default User update(long id, String name){
+        return getHandle()
+                .createQuery("update user set (id, name) values (:id, :name)")
+                .bind("id", id)
+                .bind("name", name)
+                .mapToBean(User.class).findOnly();
+    }
 
     @SqlUpdate("update user set (deleted) values (:deleted) where id = :id")
     void delete(@Bind("id") long id, @Bind("deleted") boolean deleted);

@@ -13,11 +13,11 @@ public interface UserService {
 
     List<User> getAll();
 
-    void create(UserCreationRequest userCreationRequest);
+    User create(UserCreationRequest userCreationRequest);
 
-    void update(UserUpdateRequest userUpdateRequest);
+    User update(UserUpdateRequest userUpdateRequest);
 
-    void delete(Long id);
+    String delete(Long id);
 
     String performHealthCheck();
 }
