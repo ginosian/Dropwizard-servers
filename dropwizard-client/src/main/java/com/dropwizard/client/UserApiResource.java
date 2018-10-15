@@ -17,7 +17,7 @@ import javax.ws.rs.core.GenericType;
 public class UserApiResource extends AbstractApiResource {
 
     public UserApiResource(Client client, WebTarget rootTarget) {
-        super(client, rootTarget, "");
+        super(client, rootTarget, rootTarget.getUri().getPath());
     }
 
     public Response<UserDTO> get(final Long id) {

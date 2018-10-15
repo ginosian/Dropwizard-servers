@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class ApiClientImpl implements ApiClient {
 
-    private static final String BASE_URL = "https://localhost:8081";
+    private static final String BASE_URL = "https://localhost:8080";
 
     private final UserApiResource userApiResource;
 

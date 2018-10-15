@@ -1,6 +1,5 @@
 package com.dropwizard.client.api;
 
-import org.apache.commons.lang3.StringUtils;
 import org.glassfish.jersey.client.ClientProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,20 +21,15 @@ public class AbstractApiResource {
     protected final WebTarget rootTarget;
 
     protected AbstractApiResource(final Client client, final WebTarget rootTarget, final String pathSuffix) {
-        if (client == null || rootTarget == null || StringUtils.isEmpty(pathSuffix)) {
+        if (client == null || rootTarget == null) {
             throw new IllegalStateException("Failed to construct ApiResource instance. Supplied " +
                     "com.dropwizard.client:" + (client == null) + ", " +
                     "rootTarget:" + (rootTarget == null) + ", " +
-                    "pathSuffix:" + StringUtils.isEmpty(pathSuffix));
-        }
-
-        String finalPathSuffix = pathSuffix;
-        if (!"/".equals(pathSuffix.substring(0, 1))) {
-            finalPathSuffix = "/" + pathSuffix;
+                    "pathSuffix:" + pathSuffix);
         }
 
         this.client = client;
-        this.rootTarget = rootTarget.path(finalPathSuffix);
+        this.rootTarget = rootTarget.path(pathSuffix);
     }
 
 
