@@ -28,7 +28,6 @@ public class ApiClientImpl implements ApiClient {
 
     public ApiClientImpl() {
         final ObjectMapper mapper = new ObjectMapper();
-
         SimpleModule module = new SimpleModule("apiErrorMapper", Version.unknownVersion());
         mapper.registerModule(module);
         mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);

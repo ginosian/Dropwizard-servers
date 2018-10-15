@@ -49,7 +49,5 @@ public class DropwizardClientApplication extends Application<DropwizardClientCon
             }
         });
         jersey.register(UserResourceImpl.class);
-
-
     }
 }
