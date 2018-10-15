@@ -2,6 +2,7 @@ package com.dropwizard;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
+import io.dropwizard.client.JerseyClientConfiguration;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,4 +29,9 @@ public class DropwizardClientConfiguration extends Configuration {
     @NotEmpty
     @JsonProperty("defaultName")
     private String defaultName = "Marta";
+
+    @Valid
+    @NotNull
+    @JsonProperty("jerseyClient")
+    private JerseyClientConfiguration jerseyClient = new JerseyClientConfiguration();
 }

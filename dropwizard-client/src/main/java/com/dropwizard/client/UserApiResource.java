@@ -3,10 +3,9 @@ package com.dropwizard.client;
 import com.dropwizard.client.api.AbstractApiResource;
 import com.dropwizard.client.request.UserCreationRequestDto;
 import com.dropwizard.client.request.UserUpdateRequestDto;
-import com.dropwizard.client.responce.Response;
 import com.dropwizard.client.responce.ApiSuccessResponse;
+import com.dropwizard.client.responce.Response;
 import com.dropwizard.client.responce.dto.UserDTO;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,13 +14,10 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 
 @Slf4j
-public class UserResource extends AbstractApiResource {
+public class UserApiResource extends AbstractApiResource {
 
-    private ObjectMapper objectMapper;
-
-    public UserResource(Client client, WebTarget rootTarget, ObjectMapper objectMapper) {
+    public UserApiResource(Client client, WebTarget rootTarget) {
         super(client, rootTarget, "");
-        this.objectMapper = objectMapper;
     }
 
     public Response<UserDTO> get(final Long id) {

@@ -17,10 +17,10 @@ import javax.ws.rs.core.MediaType;
         produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML},
         tags = {
                 @Tag(name = "api", description = "API & related"),
-                @Tag(name = "user", description = "UserResource & related")
+                @Tag(name = "user", description = "UserClient & related")
         },
         externalDocs = @ExternalDocs(
-                value = "Simple CRUD operations with UserResource entity.",
+                value = "Simple CRUD operations with UserClient entity.",
                 url = "https://localhost:8080/users"
         )
 )
@@ -32,48 +32,48 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public interface UserResource {
     @ApiOperation(
-            notes = "Gets complete info for UserResource with matching ID, throws exception if not found.",
-            value = "Get UserResource by ID.",
+            notes = "Gets complete info for UserClient with matching ID, throws exception if not found.",
+            value = "Get UserClient by ID.",
             response = UserDTO.class
     )
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Successful retrieval of UserResource info.", response = UserDTO.class)
+            @ApiResponse(code = 200, message = "Successful retrieval of UserClient info.", response = UserDTO.class)
     })
     @GET
     @Path("{userId}")
     Response<UserDTO> get(@PathParam("userId") Long userId);
 
     @ApiOperation(
-            notes = "Creates UserResource, if successful returns success message.",
-            value = "Creates UserResource.",
+            notes = "Creates UserClient, if successful returns success message.",
+            value = "Creates UserClient.",
             response = ApiResponse.class
     )
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Successful creation of UserResource.", response = ApiResponse.class)
+            @ApiResponse(code = 200, message = "Successful creation of UserClient.", response = ApiResponse.class)
     })
     @POST
     @Path("")
     Response<UserDTO> create(@Valid UserCreationRequestDto userCreationRequestDto);
 
     @ApiOperation(
-            notes = "Updates UserResource, if successful returns success message.",
-            value = "Updates UserResource.",
+            notes = "Updates UserClient, if successful returns success message.",
+            value = "Updates UserClient.",
             response = ApiResponse.class
     )
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Successful update of UserResource.", response = ApiResponse.class)
+            @ApiResponse(code = 200, message = "Successful update of UserClient.", response = ApiResponse.class)
     })
     @PUT
     @Path("")
     Response<UserDTO> update(@Valid UserUpdateRequestDto userUpdateRequestDto);
 
     @ApiOperation(
-            notes = "Deletes UserResource, if successful return success message.",
-            value = "Deletes UserResource.",
+            notes = "Deletes UserClient, if successful return success message.",
+            value = "Deletes UserClient.",
             response = ApiResponse.class
     )
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Successful deletion of UserResource.", response = ApiResponse.class)
+            @ApiResponse(code = 200, message = "Successful deletion of UserClient.", response = ApiResponse.class)
     })
     @DELETE
     @Path("{userId}")
