@@ -8,9 +8,6 @@
     <prerequisites>
         <maven>3.0.0</maven>
     </prerequisites>
-    <modules>
-        <module>dropwizard-com.dropwizard.client</module>
-    </modules>
 
     <groupId>dropwizard-test-2</groupId>
     <artifactId>dropwizard-test-2</artifactId>

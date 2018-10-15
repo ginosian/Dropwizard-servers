@@ -12,7 +12,7 @@ import lombok.Setter;
 public class User extends AbstractEntity{
     private String name;
 
-    public User(final Long id, final Boolean deleted, final String name) {
+    public User(Long id, Boolean deleted, String name) {
         super(id, deleted);
         this.name = name;
     }
