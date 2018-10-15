@@ -2,11 +2,9 @@ package com.dropwizard.client.api.impl;
 
 import com.dropwizard.client.UserApiResource;
 import com.dropwizard.client.api.ApiClient;
-import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import org.glassfish.jersey.CommonProperties;
 import org.glassfish.jersey.client.filter.EncodingFilter;
@@ -24,15 +22,13 @@ public class ApiClientImpl implements ApiClient {
 
     public ApiClientImpl(final Client client) {
         final ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule("apiErrorMapper", Version.unknownVersion());
-        mapper.registerModule(module);
         mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+        client.register(new JacksonJsonProvider(mapper));
         client.property(CommonProperties.FEATURE_AUTO_DISCOVERY_DISABLE, true);
         client.register(GZipEncoder.class);
         client.register(EncodingFilter.class);
-        client.register(new JacksonJsonProvider(mapper));
 
         final WebTarget rootTarget = client.target(BASE_URL);
 
