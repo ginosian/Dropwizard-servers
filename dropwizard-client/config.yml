@@ -7,3 +7,12 @@ swagger:
   resourcePackage: org.dropwizard.test.resource
 template: Hello, %s!
 defaultName: Marta
+
+server:
+  applicationConnectors:
+  - type: http
+    port: 8088
+  adminConnectors:
+  - type: http
+    port: 8082
+  rootPath: /api/v1/client

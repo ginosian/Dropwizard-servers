@@ -24,7 +24,6 @@ public class UserResource extends AbstractApiResource {
         this.objectMapper = objectMapper;
     }
 
-
     public Response<UserDTO> get(final Long id) {
         return doGet("/" +id, new GenericType<Response<UserDTO>>() {});
     }

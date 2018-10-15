@@ -20,13 +20,13 @@ import java.io.IOException;
 
 public class ApiClientImpl implements ApiClient {
 
-    private static final String BASE_URL = "https://localhost:8080";
+    private static final String BASE_URL = "https://localhost:8081";
 
     private final Client client;
 
     private final UserResource userResource;
 
-    public ApiClientImpl(final String apiUrl) {
+    public ApiClientImpl() {
         final ObjectMapper mapper = new ObjectMapper();
 
         SimpleModule module = new SimpleModule("apiErrorMapper", Version.unknownVersion());
